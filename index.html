@@ -50,6 +50,38 @@
         <p contenteditable="true" id="name"></p>
         <p contenteditable="true" id="add"></p>
     </div>
-   
+   <script>
+    function getName() {
+        let person = prompt("कृपया नाम दर्ज करे", "");
+        if (person != null) {
+            document.getElementById("name").innerHTML = person;
+        }
+    }
+    function getTh() {
+        let person = prompt("कृपया ठिकाना दर्ज करे", "");
+        if (person != null) {
+            document.getElementById("add").innerHTML = person;
+        }
+    }
+    // getName()
+    // getTh()
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+    });
+    // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+    let name = params.n; // "some_value"
+    if (name) {
+        document.getElementById("name").innerHTML = name;
+    } else {
+        getName()
+    }
+    let add = params.t; // "some_value"
+    if (add) {
+        document.getElementById("add").innerHTML = add;
+    } else {
+        getTh()
+    }
+    
+   </script>
 </body>
 </html>
