@@ -171,7 +171,20 @@
     <script src="jquery-3.6.1.min.js"></script>
    <script>
     $(document).ready(function(){
-        
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+                get: (searchParams, prop) => searchParams.get(prop),
+            });
+
+            let name = params.n
+            if (name) {
+                name = name.replaceAll('_',' ')
+                $('[name="nameX"]').val(name);
+            }
+            let add = params.t;
+            if (add) {
+                add = add.replaceAll('_',' ')
+                $('[name="addX"]').val(add)
+            }
         $('#btn').click(function(){
             var tt1 = $('[name="tt1"]:checked').val();
             var tt2 = $('[name="tt2"]:checked').val();
