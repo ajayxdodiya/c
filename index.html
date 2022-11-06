@@ -28,35 +28,6 @@
         #imgHolder img {
             width: 100%;
         }
-        #name, #add, #tt1, #tt2 {
-            position: absolute;
-            top: 8.8%;
-            font-size: 2.6vw;
-            font-weight: 700;
-            color: #033f99;
-        }
-        #tt1 {
-            color: #000
-        }
-        @media (min-width: 1200px) {
-            #name, #add {
-                top: 8.9%
-            }
-        }
-        #name {
-            left: 21%;
-            min-width: 52%;
-        }
-        #tt1 {
-            left: 6.7%;
-        }
-        #tt2 {
-            left: 16.8%;
-        }
-        #add {            
-            left: 77.9%;
-            min-width: 14%;
-        }
         *:focus {
             outline: none
         }
@@ -132,6 +103,54 @@
             background-color: #fff;
             color: #000
         }
+        
+        #name, #add, #tt1, #tt2 {
+            position: absolute;
+            top: 8.8%;
+            font-size: 2.6vw;
+            font-weight: 700;
+            color: #033f99;
+        }
+        @media (min-width: 1200px) {
+            #name, #add {
+                top: 8.9%
+            }
+        }
+        #name {
+            left: 21%;
+            min-width: 52%;
+        }
+        #name.no-tt1-tt2 {
+            left: 7%;
+        }
+        #name.no-tt1 {
+            left: 10.5%;
+        }
+        #name.no-tt2 {
+            left: 16%;
+        }
+        #name.shree-only {
+            left: 10.9%;
+        }
+        #name.shree-has {
+            left: 15%;
+        }
+        #tt1 {
+            left: 6.7%;
+        }
+        #tt2 {
+            left: 16.8%;
+        }
+        #tt2.no-tt1 {
+            left: 6.7%;
+        }
+        #tt2.shree-has {
+            left: 11%;
+        }
+        #add {            
+            left: 77.9%;
+            min-width: 14%;
+        }
     </style>
 </head>
 <body>
@@ -152,11 +171,11 @@
         </div>
         <div class="form-group">
             <label class="label" for="">नाम</label>
-            <input class="input" type="text" name="nameX" autofocus>
+            <input class="input" type="text" name="nameX" autofocus value="भुवानसिंह जी सोलंकी">
         </div>
         <div class="form-group">
             <label class="label" for="">ठिकाना</label>
-            <input class="input" type="text" name="addX">
+            <input class="input" type="text" name="addX" value="गोपालखेड़ी">
         </div>
         <div class="form-group">
             <button id="btn">सबमिट करे</button>
@@ -192,6 +211,22 @@
             var nameX = $('[name="nameX"]').val();
             var addX = $('[name="addX"]').val();
             console.log(tt1, tt2, nameX, addX)
+            if (tt1 == '' && tt2 == '') {
+                $('#name').addClass('no-tt1-tt2')
+            } else if (tt1 == '' && tt2 != '') {
+                $('#tt2').addClass('no-tt1')
+                $('#name').addClass('no-tt1')
+            } else if (tt1 != '' && tt2 == '') {
+                $('#tt1').addClass('no-tt2')
+                $('#name').addClass('no-tt2')
+            }
+            if (tt1 == 'श्री' && tt2 == '') {
+                $('#name').addClass('shree-only')
+            }
+            if (tt1 == 'श्री' && tt2 != '') {
+                $('#tt2').addClass('shree-has')
+                $('#name').addClass('shree-has')
+            }
             $('#tt1').html(tt1)
             $('#tt2').html(tt2)
             $('#name').html(nameX)
