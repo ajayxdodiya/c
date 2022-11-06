@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>गोरनी - पत्रिका</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             font-family: 'Noto Sans', sans-serif;
@@ -29,13 +29,15 @@
             font-size: 2.6vw;
             font-weight: 700;
             color: #033f99;
-            padding-right: 15px
+            padding-right: 15px;
         }
         #name {
             left: 16.8%;
+            min-width: 52%;
         }
         #add {            
             left: 77.9%;
+            min-width: 14%;
         }
         *:focus {
             outline: none
@@ -45,8 +47,8 @@
 <body>
     <div id="imgHolder">
         <img src="101.png" alt="">
-        <p contenteditable="true" id="name">ठा. सुमेर सिंह जी पंवार</p>
-        <p contenteditable="true" id="add">बीड</p>
+        <p contenteditable="true" id="name"></p>
+        <p contenteditable="true" id="add"></p>
     </div>
    
 </body>
