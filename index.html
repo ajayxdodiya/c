@@ -68,15 +68,17 @@
     const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
     });
-    // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+    
     let name = params.n; // "some_value"
     if (name) {
+        name = name.replaceAll('_',' ')
         document.getElementById("name").innerHTML = name;
     } else {
         getName()
     }
     let add = params.t; // "some_value"
     if (add) {
+        add = add.replaceAll('_',' ')
         document.getElementById("add").innerHTML = add;
     } else {
         getTh()
